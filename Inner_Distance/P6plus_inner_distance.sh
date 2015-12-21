@@ -7,8 +7,9 @@ do
   cut -f 3 inner_P6plus_${ITEM}.txt | sort | uniq -c > ${Output}/P6plus_match_${ITEM}.txt
   # count the different match condition of the reads for further analysis
   echo "finish P6plus_${ITEM} counting the CIGAR"
-  grep "100M" inner_P6plus_${ITEM}.txt | grep "=" |awk '{print $6-200}' > ${Output}/P6plus_id_${ITEM}.txt
+  grep "100M" inner_P6plus_${ITEM}.txt | grep "=" |awk '{ if( $6>0 ){print $6-200} }' > ${Output}/P6plus_id_${ITEM}.txt
   #only filter 100% match reads and match on the same transcripts to calculate the inner distance
   #minus 200 due to the length of the reads is 100 base pairs
+  #only use the + PLENGTH
   echo "finish P6plus_${ITEM} the inner distance !"
 done
