@@ -1,0 +1,5 @@
+
+find /home/weitinglin66/2016/201601/20160103/sampleP0/ -name "accepted_hits.bam" >sampleP0
+cat sampleP0 | awk '{ printf("cufflinks -p 8 -o \$\{OUTPUT\}/sampleP0_ %s \n",$1)}' 
+cat sampleP6 | awk '{ printf("cufflinks -p 8 -o \$\{OUTPUT\}/sampleP6_ %s \n",$1)}'
+cat sampleP6plus | awk '{ printf("cufflinks -p 8 -o \$\{OUTPUT\}/sampleP6plus_ %s \n",$1)}'
