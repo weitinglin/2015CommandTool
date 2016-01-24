@@ -9,3 +9,4 @@ echo "finish P0_${ITEM} processing!"
 done
 < ${Output}/P6_total_read.txt awk '{s+=$1} END {print s}' > ${Output}/P6_total_read_numbers.txt
 rm ${Output}/P6_total_read.txt
+7
